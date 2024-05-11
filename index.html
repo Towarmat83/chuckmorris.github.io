@@ -33,57 +33,47 @@
     </div>
 
    <script>
-function getOrCreateUserId() {
-    if (!localStorage.getItem('userId')) {
-        localStorage.setItem('userId', generateUUID());
+    function getOrCreateUserId() {
+        if (!localStorage.getItem('userId')) {
+            localStorage.setItem('userId', generateUUID());
+        }
+        return localStorage.getItem('userId');
     }
-    return localStorage.getItem('userId');
-}
-
-function generateUUID() { // Fonction simple pour générer un UUID
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    var userID = getOrCreateUserId(); // Récupère ou crée un UUID unique pour l'utilisateur
-
-    // Envoi des informations au chargement de la page
-    fetch('https://script.google.com/macros/s/AKfycbxWHXc3uSELReSeHYwwL5Qg_rpalViHA0SHpAZNZ7RKDyQ7LWKUE2z7m2GQEiWe69W2/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userID: userID, url: window.location.href, action: 'Page Load' })
-    }).catch(function(error) {
-        console.error('Error:', error);
-    });
-
-    // Ajout des gestionnaires d'événements pour les liens
-    var links = document.querySelectorAll('a.trackable');
-    links.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            var url = this.href;
-            fetch('https://script.google.com/macros/s/AKfycbxWHXc3uSELReSeHYwwL5Qg_rpalViHA0SHpAZNZ7RKDyQ7LWKUE2z7m2GQEiWe69W2/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ userID: userID, url: url, action: 'Link Click' })
-            }).then(function(response) {
-                window.location.href = url;
-            }).catch(function(error) {
-                console.error('Error:', error);
+    
+    function generateUUID() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        var userID = getOrCreateUserId();
+        sendEventData(userID, window.location.href, 'Page Load'); // Envoi immédiat des données au chargement
+    
+        var links = document.querySelectorAll('a.trackable');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                sendEventData(userID, this.href, 'Link Click'); // Utilisation de la fonction pour gérer l'événement
             });
         });
     });
-});
-</script>
+    
+    function sendEventData(userID, url, action) {
+        fetch('https://script.google.com/macros/s/AKfycbxWHXc3uSELReSeHYwwL5Qg_rpalViHA0SHpAZNZ7RKDyQ7LWKUE2z7m2GQEiWe69W2/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userID: userID, url: url, action: action })
+        }).catch(function(error) {
+            console.error('Error:', error);
+        });
+    }
+    </script>
+
 
 </body>
 </html>
