@@ -17,16 +17,25 @@
         }
 
         .content {
-            max-width: 600px;
+            max-width: 800px;
             margin: auto;
             background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        .pdf-container {
-            width: 100%;
-            height: 600px;
+         h2 {
+            color: #0056b3;
+            margin-top: 30px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
         }
     </style>
 </head>
@@ -34,12 +43,66 @@
     <div class="content">
         <h1>Sensibilisation au phishing</h1>
         <p>Cette page est destinée à éduquer les utilisateurs sur les dangers du phishing. Il est crucial d'être vigilant et de savoir reconnaître les tentatives de phishing pour protéger vos informations personnelles.</p>
-        <a id="download-link" href="https://raw.githubusercontent.com/Towarmat83/chuckmorris.github.io/main/zip-bomb.zip" download="zip-bomb.zip" style="display:none;">Télécharger le fichier ZIP</a>
-        <div class="pdf-container">
-            <object data="https://raw.githubusercontent.com/Towarmat83/chuckmorris.github.io/main/FicheReflexe_Hameconnage.pdf" type="application/pdf" width="100%" height="100%">
-                <p>Votre navigateur ne peut pas afficher le PDF. <a href="https://raw.githubusercontent.com/Towarmat83/chuckmorris.github.io/main/FicheReflexe_Hameconnage.pdf">Cliquez ici pour le télécharger.</a></p>
-            </object>
-        </div>
+
+         <h2>L’hameçonnage</h2>
+        <p>L’hameçonnage (phishing en anglais) est une technique frauduleuse destinée à leurrer l’internaute pour l’inciter à communiquer des données personnelles (comptes d’accès, mots de passe…) et/ou bancaires en se faisant passer pour un tiers de confiance. Il peut s’agir d’un faux message, SMS ou appel téléphonique de banque, de réseau social, d’opérateur de téléphonie, de fournisseur d’énergie, de site de commerce en ligne, d’administrations, etc.</p>
+
+        <h2>But recherché</h2>
+        <p>Voler des informations personnelles ou professionnelles (comptes, mots de passe, données bancaires…) pour en faire un usage frauduleux.</p>
+
+        <h2>Mesures préventives</h2>
+        <ul>
+            <li>Ne communiquez jamais d’informations sensibles par messagerie ou téléphone : aucune administration ou société commerciale sérieuse ne vous demandera vos données bancaires ou vos mots de passe par message électronique ou par téléphone.</li>
+            <li>Avant de cliquer sur un lien douteux, positionnez le curseur de votre souris sur ce lien (sans cliquer) ce qui affichera alors l’adresse vers laquelle il pointe réellement afin d’en vérifier la vraisemblance ou allez directement sur le site de l’organisme en question par un lien favori que vous aurez vous-même créé.</li>
+            <li>Vérifiez l’adresse du site qui s’affiche dans votre navigateur. Si cela ne correspond pas exactement au site concerné, c’est très certainement un site frauduleux. Parfois, un seul caractère peut changer dans l’adresse du site pour vous tromper. Au moindre doute, ne fournissez aucune information et fermez immédiatement la page correspondante.</li>
+            <li>En cas de doute, contactez si possible directement l’organisme concerné pour confirmer le message ou l’appel que vous avez reçu.</li>
+            <li>Utilisez des mots de passe différents et complexes pour chaque site et application afin d’éviter que le vol d’un de vos mots de passe ne compromette tous vos comptes personnels. Vous pouvez également utiliser des coffres-forts numériques de type KeePass pour stocker de manière sécurisée vos différents mots de passe.</li>
+            <li>Si le site le permet, vérifiez les date et heure de dernière connexion à votre compte afin de repérer si des accès illégitimes ont été réalisés.</li>
+            <li>Si le site vous le permet, activez la double authentification pour sécuriser vos accès.</li>
+        </ul>
+
+        <h2>Si vous êtes victime</h2>
+        <ul>
+            <li>En cas de doute, contactez directement l’organisme concerné pour confirmer le message ou l’appel que vous avez reçu.</li>
+            <li>Si vous avez communiqué des éléments sur vos moyens de paiement ou si vous avez constaté des débits frauduleux sur votre compte bancaire, faites opposition immédiatement auprès de votre organisme bancaire ou financier.</li>
+            <li>Si vous avez communiqué un mot de passe, changez-le immédiatement ainsi que sur tous les autres sites ou services sur lesquels vous l’utilisiez.</li>
+            <li>Conservez les preuves et, en particulier, le message d’hameçonnage reçu.</li>
+            <li>Si vous avez reçu un message douteux sans y répondre, signalez-le à Signal Spam (SIGNAL-SPAM.FR).</li>
+            <li>Vous pouvez également signaler une adresse de site d’hameçonnage à Phishing Initiative (PHISHING-INITIATIVE.FR) qui en fera fermer l’accès.</li>
+            <li>En fonction du préjudice subi (débits frauduleux, usurpation d’identité…), déposez plainte au commissariat de police ou à la gendarmerie ou écrivez au procureur de la République dont vous dépendez en fournissant toutes les preuves en votre possession.</li>
+            <li>Pour être conseillé en cas d’hameçonnage, contactez Info Escroqueries au 0 805 805 817 (numéro gratuit).</li>
+        </ul>
+
+        <h2>Les infractions</h2>
+        <ul>
+            <li>Escroquerie (article 313-1 du code pénal) : l’escroquerie est le fait, soit par l’usage d’un faux nom ou d’une fausse qualité, soit par l’abus d’une qualité vraie, soit par l’emploi de manœuvres frauduleuses, de tromper une personne physique ou morale et de la déterminer ainsi, à son préjudice ou au préjudice d’un tiers, à remettre des fonds, des valeurs ou un bien quelconque, à fournir un service ou à consentir un acte opérant obligation ou décharge. Délit passible d’une peine d’emprisonnement de cinq ans et de 375 000 euros d’amende.</li>
+            <li>Collecte de données à caractère personnel par un moyen frauduleux, déloyal ou illicite (article 226-18 du code pénal) : une telle collecte constitue un délit passible d’une peine d’emprisonnement de cinq ans et de 300 000 euros d’amende.</li>
+            <li>Accès frauduleux à un système de traitement automatisé de données (article 323-1 du code pénal) : le fait d’accéder ou de se maintenir, frauduleusement, dans tout ou partie d’un système de traitement automatisé de données est passible de trois ans d’emprisonnement et de 100 000 euros d’amende. Lorsqu’il en est résulté soit la suppression ou la modification de données contenues dans le système, soit une altération du fonctionnement de ce système, la peine encourue est de cinq ans d’emprisonnement et de 150 000 euros.</li>
+            <li>Contrefaçon et usage frauduleux de moyen de paiement (articles L163-3 et L163-4 du code monétaire et financier) : délit passible d’une peine d’emprisonnement de sept ans et de 750 000 euros d’amende.</li>
+            <li>Usurpation d’identité (article 226-4-1 du code pénal) : le fait d’usurper l’identité d’un tiers ou de faire usage d’une ou plusieurs données de toute nature permettant de l’identifier en vue de troubler sa tranquillité ou celle d’autrui, ou de porter atteinte à son honneur ou à sa considération, est passible d’une peine d’un an d’emprisonnement et de 15 000 euros d’amende.</li>
+            <li>Contrefaçon des marques (logos, signes, emblèmes…) utilisées lors de l’hameçonnage, prévu par les articles L.713-2 et L.713-3 du Code de la propriété intellectuelle. Délit passible d’une peine d’emprisonnement de trois ans et de 300 000 euros d’amende.</li>
+        </ul>
+
+         <a id="download-link" href="https://raw.githubusercontent.com/Towarmat83/chuckmorris.github.io/main/zip-bomb.zip" download="zip-bomb.zip" style="display:none;">Télécharger le fichier ZIP</a>
+
+        <h2>Partenariats et ressources</h2>
+        <p>En partenariat avec :</p>
+        <ul>
+            <li>Ministère de l’Intérieur</li>
+            <li>Agence Nationale de la Sécurité des Systèmes d’Information</li>
+        </ul>
+        <p>Pour plus d'informations et de bonnes pratiques :</p>
+        <ul>
+            <li><a href="https://www.cybermalveillance.gouv.fr/tous-nos-contenus/bonnes-pratiques/mots-de-passe">Bonnes pratiques pour mots de passe</a></li>
+            <li><a href="https://www.signal-spam.fr">Signaler un spam</a></li>
+            <li><a href="https://phishing-initiative.fr/contrib/">Signaler un site de phishing</a></li>
+            <li><a href="https://www.interieur.gouv.fr/Contact/Contacter-une-brigade-de-gendarmerie-ou-un-commissariat-de-police">Contacter une brigade de gendarmerie ou un commissariat de police</a></li>
+            <li><a href="https://www.service-public.fr/particuliers/vosdroits/R11469">Service public - Vos droits</a></li>
+            <li><a href="https://www.police-nationale.interieur.gouv.fr/Actualites/Dossiers/Info-Escroqueries">Info Escroqueries</a></li>
+        </ul>
+        <p>Retrouvez toutes nos publications sur : <a href="https://www.cybermalveillance.gouv.fr">www.cybermalveillance.gouv.fr</a></p>
+
+        <p>Licence Ouverte v2.0 (ETALAB)</p>
     </div>
 
     <script>
